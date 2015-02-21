@@ -1,5 +1,3 @@
-## P Gallop 21 Feb 15
-
 ## Caching the Inverse of a Matrix
 
 ## Matrix inversion is usually a costly computation.
@@ -40,7 +38,6 @@ cacheSolve <- function(x=matrix(), ...) {
                 message("getting cached data")
                 return(inv)
         }
-        
         matrix <- x$get()
         inv <- solve(matrix)
         x$setinverse(inv)
@@ -50,11 +47,17 @@ cacheSolve <- function(x=matrix(), ...) {
 ## Test script
 
 x <- matrix(c(45, 34, 3, 41, 5, 6, 77, 81, 9), nrow=3, ncol=3)
-z <- makeCacheMatrix(x)
+x <- makeCacheMatrix(x) ## change back to z <- ...
 
 answer <- cacheSolve(z)
 answer
 
 ## Repeat the call
+answer <- cacheSolve(z)
+answer
+
+## Now change x
+x <- matrix(c(45, 34, 3, 41, 5, 6, 77, 81, 99), nrow=3, ncol=3)
+## answer shouldnt be the cached one
 answer <- cacheSolve(z)
 answer

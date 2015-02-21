@@ -1,5 +1,3 @@
-## P Gallop 21 Feb 15
-
 ## Caching the Inverse of a Matrix
 
 ## Matrix inversion is usually a costly computation.
